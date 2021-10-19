@@ -1,0 +1,56 @@
+
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+
+
+<div class="page-wrapper">
+           
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="form_body">
+                                    <h1 class="text-center text-dark">Details about {{donors.name}}</h1>
+                        
+                                    <div class= "donor_donor m-5">
+                                        <p><strong>Name:    </strong>{{donors.name}}</p>
+                                        <p><strong>Gender:  </strong> {{donors.gender}}</p>
+                                        <p><strong>Date Of Birth:   </strong> {{donors.date_of_birth}}</p>
+                                        <p><strong>Blood Group: </strong> <span class="text-uppercase">{{donors.blood_group}}</span></p>
+                                        <p><strong>Phone Number:    </strong> {{donors.phone_number}}</p>
+                                        <p><strong>Email:   </strong> {{donors.email}}</p>
+                                        <p><strong>Occupation:  </strong> {{donors.occupation}}</p>
+                                        <p><strong>Home Address:    </strong> {{donors.address}}</p>
+                                        <p><strong>Blood Donated Last Date: </strong> {{donors.last_donate_date}}</p>
+                                        <p><strong>Any Diseases:    </strong> {{donors.any_diseases}}</p>
+                                        <p><strong>Bleeding Disorders:</strong> {{donors.bleeding_disorders}}</p>
+                                
+                                </div>
+                            </div>
+                    
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+            </div>
+          
+         
+        </div>
+      
+    </div>
+  
+</div>
+
+
+{% endblock %}
+
+

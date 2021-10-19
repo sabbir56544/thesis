@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="container donor_list">
+        <h2 class='text-center mt-5'>Blood Donor List...</h2>
+        <table class="table table-hover mt-4">
+            <thead class="theadcolor">
+                <tr>
+                    <th>Donor Name</th>
+                    <th class="text-uppercase">Blood Group</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                    <th>Last Donate Date</th>
+                </tr>
+            </thead>
+            {% for donor in donor_filter %}
+                <tbody class="mb-5">
+                    <tr>
+                        <td><a href="#">{{donor.name}}</a></td>
+                        <td>{{donor.blood_group | capfirst }}</td>
+                        <td>{{donor.phone_number}}</td>
+                        <td>{{donor.address}}</td>
+                        <td>{{ donor.last_donate_date }}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<br>
+
+{% endblock  %}

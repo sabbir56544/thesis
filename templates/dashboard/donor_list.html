@@ -1,0 +1,59 @@
+{% extends 'dashboard/base.html' %} 
+
+
+{% block content %}
+        <div class="page-wrapper">
+           
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Admitted Patient List</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">gender</th>
+                                            <th scope="col">blood_group</th>
+                                            <th scope="col">Phone_number</th>
+                                            <th scope="col">occupation</th>
+                                            
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for donor in donor_list %}
+                                          <tr>
+                                            <th scope="row">{{ forloop.counter }}</th>
+                                            <td><a href="{% url 'donor-detail' pk=donor.pk %}"> {{ donor.name }}<a</td>
+                                            <td>{{ donor.gender }}</td>
+                                            <td>{{ donor.blood_group }}</td>
+                                            <td>{{ donor.phone_number }}</td>
+                                            <td>{{ donor.occupation }}</td>
+                                            
+                                             
+                                          </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                  
+                 
+                </div>
+              
+            </div>
+          
+        </div>
+        
+  
+{% endblock %}

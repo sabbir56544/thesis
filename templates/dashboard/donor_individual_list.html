@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h4>
+    {% for donor in donors %}
+
+        <h5>{{ donor.blood_group }}</h5>
+    {% endfor %}
+</h4>
+
+{% endblock %}
