@@ -30,16 +30,16 @@ def register_view(request):
             form.save()
             messages.success(request, 'Thank You for being part in this Blood Bank')
 
-            mydict = {'email': email}
-            html_template = 'send_email.html'
-            html_message = render_to_string(html_template, context=mydict)
-            subject = 'Welcome to Khulna Blood Bank'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [email]
-            message = EmailMessage(subject, html_message,
-                                   email_from, recipient_list)
-            message.content_subtype = 'html'
-            message.send()
+            # mydict = {'email': email}
+            # html_template = 'send_email.html'
+            # html_message = render_to_string(html_template, context=mydict)
+            # subject = 'Welcome to Khulna Blood Bank'
+            # email_from = settings.EMAIL_HOST_USER
+            # recipient_list = [email]
+            # message = EmailMessage(subject, html_message,
+            #                        email_from, recipient_list)
+            # message.content_subtype = 'html'
+            # message.send()
             return redirect('home')    
     context = {
         'form': form,
