@@ -33,7 +33,7 @@ def register_view(request):
             mydict = {'email': email}
             html_template = 'send_email.html'
             html_message = render_to_string(html_template, context=mydict)
-            subject = 'Welcome to Khulna Blood Bank'
+            subject = 'Welcome to Nubtk Blood Donor'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email]
             message = EmailMessage(subject, html_message,
