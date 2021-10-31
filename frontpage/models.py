@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
+from django.core.exceptions import ValidationError
 
 class About(models.Model):
     discription = models.TextField()
@@ -28,6 +28,12 @@ class DonationProcess(models.Model):
     def __str__(self):
         return self.title
 
+
+class Hospital(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
 
 class DonorRegister(models.Model):
@@ -59,16 +65,6 @@ class DonorRegister(models.Model):
         ("no","No"),
     ]
 
-    near_hospital_choices=[
-        ("Khulna City Medical","Khulna City Medical"),
-        ("Khulna Medical College Hospital","Khulna Medical College Hospital"),
-        ("Khulna Sadar Hospital", "Khulna Sadar Hospital"),
-        ("Islami Bank Hospital", "Islami Bank Hospital"),
-        ("SANDHANI DONOR CLUB KHULNA", "SANDHANI DONOR CLUB KHULNA"),
-        ("Khulna Healthcare Hospital", "Khulna Healthcare Hospital"),
-        ("Surokkha Hospital & Diagnostic", "Surokkha Hospital & Diagnostic"),
-
-    ]
 
     name = models.CharField(max_length=30)
     gender = models.CharField(max_length=6, choices=gender_choices)
@@ -78,15 +74,13 @@ class DonorRegister(models.Model):
     email = models.EmailField()
     occupation = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
-    last_donate_date = models.CharField(max_length=50)
     any_diseases = models.CharField(max_length=4, choices=any_diseases_choices)
     bleeding_disorders = models.CharField(max_length=4, choices=bleeding_disorders_choices)
-    near_hospital = models.CharField(max_length=100, choices=near_hospital_choices, default="Khulna Medical College Hospital")
+    near_hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     today_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     
 
     def __str__(self):
         return self.name
-
 

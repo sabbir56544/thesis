@@ -18,7 +18,6 @@ class DonorRegistration(ModelForm):
             'email' : forms.EmailInput(attrs={'class':'form-control', 'required':'True'}),
             'occupation' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
             'address' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
-            'last_donate_date' : forms.DateInput(attrs={'class':'form-control', 'type':'date', 'required':'True'}),
             'any_diseases' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'bleeding_disorders' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'near_hospital' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
@@ -57,9 +56,10 @@ class DonorSearch(forms.Form):
         ("Khulna Medical College Hospital","Khulna Medical College Hospital"),
         ("Khulna Sadar Hospital", "Khulna Sadar Hospital"),
         ("Islami Bank Hospital", "Islami Bank Hospital"),
-        ("SANDHANI DONOR CLUB KHULNA", "SANDHANI DONOR CLUB KHULNA"),
+        ("SANDHANI Hospital KHULNA", "SANDHANI Hospital KHULNA"),
         ("Khulna Healthcare Hospital", "Khulna Healthcare Hospital"),
         ("Surokkha Hospital & Diagnostic", "Surokkha Hospital & Diagnostic"),
+        ('Addin Hospital', 'Addin Hospital'),
 
     ]
 
