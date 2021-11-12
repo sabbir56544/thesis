@@ -14,13 +14,14 @@ class DonorRegistration(ModelForm):
             'gender' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'date_of_birth' : forms.DateInput(attrs={'class':'form-control', 'type':'date', 'required':'True'}),
             'blood_group' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'phone_number' : forms.NumberInput(attrs={'class':'form-control', 'required':'True'}),
+            'phone_number' : forms.TextInput(attrs={'class':'form-control', 'required':'True', 'placeholder': '+880********'}),
             'email' : forms.EmailInput(attrs={'class':'form-control', 'required':'True'}),
             'occupation' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
+            'student_id': forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
             'address' : forms.TextInput(attrs={'class':'form-control', 'required':'True'}),
             'any_diseases' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
             'bleeding_disorders' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
-            'near_hospital' : forms.Select(attrs={'class':'form-control', 'required':'True'}),
+          
             
         }
         

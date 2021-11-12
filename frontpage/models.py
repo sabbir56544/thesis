@@ -29,13 +29,6 @@ class DonationProcess(models.Model):
         return self.title
 
 
-class Hospital(models.Model):
-    name = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
-
-
 class DonorRegister(models.Model):
 
     gender_choices = [
@@ -70,13 +63,13 @@ class DonorRegister(models.Model):
     gender = models.CharField(max_length=6, choices=gender_choices)
     date_of_birth = models.CharField(max_length=40)
     blood_group = models.CharField(max_length=4, choices=blood_choices)
-    phone_number = models.CharField(max_length=11)
+    phone_number = models.CharField(max_length=14, default="+880")
     email = models.EmailField()
     occupation = models.CharField(max_length=50)
+    student_id = models.CharField(max_length=25, blank=True, null=True)
     address = models.CharField(max_length=50)
     any_diseases = models.CharField(max_length=4, choices=any_diseases_choices)
     bleeding_disorders = models.CharField(max_length=4, choices=bleeding_disorders_choices)
-    near_hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     today_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     

@@ -9,6 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 
 
+@allowed_users(allowed_roles=['admin'])
 @login_required
 @admin_only
 def dashboard_view(request):
@@ -66,12 +67,14 @@ def dashboard_view(request):
 @login_required
 @admin_only
 def search_donor(request):
-    if request.method == 'POST':
-        search_keyword = request.POST['search_keyword']
-        serach_items = DonorRegister.objects.filter(blood_group__contains=search_keyword)
-        return render(request, 'dashboard/search.html', {'serach_items': serach_items, 'serch_key': search_keyword})
-    return render(request, 'dashboard/search.html')
-
+    try:
+        if request.method == 'POST':
+            search_keyword = request.POST['search_keyword']
+            serach_items = DonorRegister.objects.filter(blood_group__contains=search_keyword)
+            return render(request, 'dashboard/search.html', {'serach_items': serach_items, 'serch_key': search_keyword})
+        return render(request, 'dashboard/search.html')
+    except:
+        return render(request, "errors404.html")
 
 
 @login_required
